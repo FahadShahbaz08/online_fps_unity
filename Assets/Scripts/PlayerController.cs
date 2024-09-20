@@ -84,9 +84,38 @@ public class PlayerController : MonoBehaviour
                 movement.y += Physics.gravity.y * Time.deltaTime;  // Regular gravity pull when going up
             }
         }
-
+        if (Input.GetMouseButtonDown(0))
+        {
+            Shoot();
+        }
         // Move the character controller
         characterController.Move(movement * Time.deltaTime);
+
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            Cursor.lockState = CursorLockMode.None;
+        }
+        else if(Cursor.lockState == CursorLockMode.None)
+        {
+            if (Input.GetMouseButtonDown(0))
+            {
+                Cursor.lockState = CursorLockMode.Locked;
+            }
+        }
+    }
+
+    private void Shoot()
+    {
+        //Ray ray = camera.ViewportPointToRay(new Vector3(.5f, .5f, 0f));
+
+        // this ray will be at the center of the screen automatically
+        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+        ray.origin = camera.transform.position;
+
+        if(Physics.Raycast(ray, out RaycastHit hit))
+        {
+            print($"Ray cast hit the {hit.collider.gameObject.name}");
+        }
     }
 
     private void LateUpdate()
