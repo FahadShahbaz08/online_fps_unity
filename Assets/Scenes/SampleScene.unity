@@ -522,6 +522,8 @@ MonoBehaviour:
   gravityPull: 2
   fallMultiplier: 2.5
   characterController: {fileID: 478707144}
+  bulletImpact: {fileID: 3937102629769060308, guid: 52589bb94c7266243bc16e0c20f2126d,
+    type: 3}
 --- !u!136 &478707140
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -908,7 +910,7 @@ GameObject:
   m_Component:
   - component: {fileID: 920311100}
   m_Layer: 0
-  m_Name: Blocks
+  m_Name: Environment
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -993,8 +995,8 @@ Transform:
   m_GameObject: {fileID: 1494806610}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.49, y: 0.087, z: 0.69}
-  m_LocalScale: {x: 0.18339, y: 0.20562601, z: 1}
+  m_LocalPosition: {x: 0.389, y: 0.105, z: 0.394}
+  m_LocalScale: {x: 0.18339, y: 0.20562601, z: 0.8372041}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 478707143}

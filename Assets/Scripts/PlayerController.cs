@@ -25,6 +25,7 @@ public class PlayerController : MonoBehaviour
     private Camera camera;
     public CharacterController characterController;
 
+    public GameObject bulletImpact;
 
     void Start()
     {
@@ -106,7 +107,6 @@ public class PlayerController : MonoBehaviour
 
     private void Shoot()
     {
-        //Ray ray = camera.ViewportPointToRay(new Vector3(.5f, .5f, 0f));
 
         // this ray will be at the center of the screen automatically
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
@@ -115,6 +115,8 @@ public class PlayerController : MonoBehaviour
         if(Physics.Raycast(ray, out RaycastHit hit))
         {
             print($"Ray cast hit the {hit.collider.gameObject.name}");
+            GameObject bulletImpactObj = Instantiate(bulletImpact, hit.point + (hit.normal * 0.002f), Quaternion.LookRotation(hit.normal, Vector3.up));
+            Destroy(bulletImpactObj, 5f);
         }
     }
 
